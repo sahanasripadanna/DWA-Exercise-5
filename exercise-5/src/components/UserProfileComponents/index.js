@@ -1,5 +1,11 @@
 import React from 'react';
 
-export function UserInformation() {
-	return <div>Hello, user</div>
+export function UserInformation({ email }) {
+	return (
+		<div>
+		<p>Hello, {email}.</p>
+		<p>what's good</p>
+		</div>
+
+	)
 }

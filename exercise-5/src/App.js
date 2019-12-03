@@ -23,6 +23,7 @@ var firebaseConfig = {
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
+  const [user, setUser] = useState({});
   useEffect(() => {
     //initialize firebase
     if(!firebase.apps.length){
@@ -41,9 +42,11 @@ function App() {
     firebase.auth().onAuthStateChanged(function(user){
       if (user){
         setLoggedIn(true);
+        setUser(user);
       } else {
         //no user is signed in
         setLoggedIn(false);
+        setUser({});
       }
     });
   }, [])
@@ -52,6 +55,7 @@ function App() {
     e.preventDefault();
     let email = e.currentTarget.createEmail.value;
     let password = e.currentTarget.createPassword.value;
+    
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
@@ -96,7 +100,7 @@ function App() {
       <Header loggedIn={loggedIn} logoutFunction={logoutFunction}/>
       <Router>
         <Route exact path='/' component={UserProfile}>
-          { loggedIn ? <UserProfile/>: <Redirect to="/login" />}
+          { loggedIn ? <UserProfile user={user}/>: <Redirect to="/login" />}
         </Route>
         <Route exact path='/login' component={Login}>
           { loggedIn ? <Redirect to="/" />: <Login loginFunction={loginFunction}/>}
