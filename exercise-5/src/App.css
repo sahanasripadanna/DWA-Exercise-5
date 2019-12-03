@@ -1,4 +1,4 @@
-.App {
+/*.App {
   text-align: center;
 }
 
@@ -19,4 +19,22 @@
 
 .App-link {
   color: #09d3ac;
+}*/
+
+Header{
+  border-bottom: 1px solid black;
+}
+
+Header nav {
+  margin: 0 auto;
+  max-width: 1080px;
+  align-items: center;
+  display: flex;
+  padding: 10px 0;
+  justify-content: flex-end;
+}
+
+Header nav a  {
+  display: inline-block;
+  padding: 5px, 15px;
 }
