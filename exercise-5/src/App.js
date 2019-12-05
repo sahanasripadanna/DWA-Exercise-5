@@ -98,14 +98,14 @@ function App() {
     <div className="App">
       <Header loggedIn={loggedIn} logoutFunction={logoutFunction}/>
       <Router>
-        <Route exact path='/' component={UserProfile}>
+        <Route exact path='/'>
           { loggedIn ? <UserProfile user={user}/>: <Redirect to="/login" />}
         </Route>
-        <Route exact path='/login' component={Login}>
+        <Route exact path='/login'>
           { loggedIn ? <Redirect to="/" />: <Login loginFunction={loginFunction}/>}
-          <Login/>
+
         </Route>
-        <Route exact path='/sign-up' component={Signup}>
+        <Route exact path='/sign-up'>
           { loggedIn ? <Redirect to="/" />: <Signup signupFunction={signupFunction}/>}
         </Route>
         
