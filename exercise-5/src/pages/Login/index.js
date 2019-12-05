@@ -6,6 +6,7 @@ export default function Login({ loginFunction }){
 		<div>
 			<h1>Login</h1>
 			<LoginForm submitFunction={loginFunction}/>
+			
 		</div>
 		);
 };

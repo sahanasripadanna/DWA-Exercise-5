@@ -7,7 +7,6 @@ import './App.css';
 import Login from './pages/Login';
 import UserProfile from './pages/UserProfile';
 import Signup from './pages/Signup';
-import Logout from './pages/Logout';
 import Header from './components/Header';
 
 var firebaseConfig = {
@@ -63,7 +62,7 @@ function App() {
         setLoggedIn(true);
       })
       .catch(function(error){
-        console.log('error', error);
+        console.log('error', error.message);
       })
   }
 
